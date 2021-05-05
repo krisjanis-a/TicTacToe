@@ -1,0 +1,6 @@
+/Users/Kr1sh/Desktop/unknown/programming scripts/projects/TicTacToe/bin/Debug/TicTacToe.exe
+/Users/Kr1sh/Desktop/unknown/programming scripts/projects/TicTacToe/bin/Debug/TicTacToe.pdb
+/Users/Kr1sh/Desktop/unknown/programming scripts/projects/TicTacToe/obj/x86/Debug/TicTacToe.csprojAssemblyReference.cache
+/Users/Kr1sh/Desktop/unknown/programming scripts/projects/TicTacToe/obj/x86/Debug/TicTacToe.csproj.CoreCompileInputs.cache
+/Users/Kr1sh/Desktop/unknown/programming scripts/projects/TicTacToe/obj/x86/Debug/TicTacToe.exe
+/Users/Kr1sh/Desktop/unknown/programming scripts/projects/TicTacToe/obj/x86/Debug/TicTacToe.pdb

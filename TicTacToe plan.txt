@@ -1,0 +1,26 @@
+
+		{-} Tic-Tac-Toe Game {-}
+
+Plan
+
+1) Create Board
+2) Ask player to make a move
+2.1) Fill the board with player choice
+3) Ask 2nd player/ AI to make move
+3.1) Fill the board with player choice
+4) Determine winner for having full 3 element line or game over because board is full
+5) Add to winner's score and restart the game
+
+<->
+
+Get player input logic
+
+Is the game finished/ board full?
+
+If not, who's turn is it to make a move?
+
+If choice is made, is the move legal?
+
+If the move is not legal, make choice again.
+
+If choice is legal, add choice to gameboard. Change active player and start logic again.
