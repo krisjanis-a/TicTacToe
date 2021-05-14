@@ -1,6 +1,5 @@
-﻿using System;
-using TicTacToe;
-using Xunit;
+﻿using static TicTacToe.Engine_Game;
+using NUnit.Framework;
 
 namespace TicTacToe
 {
@@ -10,34 +9,46 @@ namespace TicTacToe
         int[,] halfEmptyBoard = { { 1, 1, 1 }, { 0, 0, 0 }, { 1, 1, 1 } };
         int[,] emptyBoard = { { 0, 0, 0}, { 0, 0, 0}, { 0, 0, 0} };
 
-        [Fact]
+        int[,] randomBoard = GenerateRandomBoard.CreateRandomBoard();
+
+        [Test]
         public void CheckIfBoardFull_BoardIsFull()
         {
             bool expected = true;
 
-            bool actual = MainClass.CheckIfBoardFull(fullBoard);
+            bool actual = CheckIfBoardFull(fullBoard);
 
-            Assert.Equal(expected, actual);
+            Assert.AreEqual(expected, actual);
         }
 
-        [Fact]
+        [Test]
         public void CheckIfBoardFull_BoardIsHalfEmpty()
         {
-            bool expected = true;
+            bool expected = false;
 
-            bool actual = MainClass.CheckIfBoardFull(halfEmptyBoard);
+            bool actual = CheckIfBoardFull(halfEmptyBoard);
 
-            Assert.Equal(expected, actual);
+            Assert.AreEqual(expected, actual);
         }
 
-        [Fact]
+        [Test]
         public void CheckIfBoardFull_BoardIsEmpty()
         {
-            bool expected = true;
+            bool expected = false;
 
-            bool actual = MainClass.CheckIfBoardFull(emptyBoard);
+            bool actual = CheckIfBoardFull(emptyBoard);
 
-            Assert.Equal(expected, actual);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void CheckIfBoardFull_BoardIsRandom()
+        {
+            bool expected = false;
+
+            bool actual = CheckIfBoardFull(randomBoard);
+
+            Assert.AreEqual(expected, actual);
         }
     }
 }

@@ -24,3 +24,159 @@ If choice is made, is the move legal?
 If the move is not legal, make choice again.
 
 If choice is legal, add choice to gameboard. Change active player and start logic again.
+
+
+
+Steps:
+	- Get coordinate input - function
+	- Verify that field is empty - function
+	- Add player symbol to board - function
+	- If user move count >= 3 check whether user has a winning stack available - function
+	- Check if board is full - function
+	- Change active player - function
+
+
+		     #      ##
+		    ###     ##
+		   ## ##    ##
+		  #######   ##
+		 ##     ##  ##
+		##       ## ## Plan.
+
+
+- Check all available moves on the current board state
+- Add all available moves to a list
+- Create score list for every available move 
+
+- For every available move in the list check if there is terminal state. If there is winning or losing state return score +10 or -10 accordingly. If draw return 0. If non terminal state repeat check using as base each possible board state from available moves
+
+- Check all available moves for opponent spawning for every previous available player's move's resulting board state. 
+
+
+Pseudocode
+
+AI_make_move(actualBoard, PlayerID)
+{
+	nextMoveCoordinates = {0,0}
+	
+	minimax(actualBoard, availableMoves, PlayerID)
+	{
+		List<MoveScores>
+	
+		for (each move in AvailableMoves)
+		{
+			nextBoard = addMove(actualBoard, PlayerID)
+	
+			checkWinningState(nextBoard, PlayerID)
+
+			if(is winning move)
+			{
+				movescore = 10
+				MoveScores(currentMove) = movescore
+			}
+
+			if(is not terminal move)
+			{
+				OpponentID = changeID(PlayerID)
+				List<OpponentAvailableMoves> = findAvailableMoves(nextBoard)
+				List<OpponentTurnMoveScores>
+
+				for (each move in OpponentAvailableMoves)
+				{
+					nextOpponentBoard = addMove(nextBoard, OpponentID)
+
+					checkWinningState(nextOpponentBoard, OpponentID)
+
+					if(is winning move)
+					{
+						movescore = -10
+						MoveScores(currentMove) = movescore
+					}
+
+					if(is not terminal move)
+					{					
+						List<secondRoundPlayerAvailableMoves> = findAvailableMoves(nextOpponentBoard)
+
+						minimax(nextOpponentBoard, secondRoundPlayerAvailableMoves, PlayerID)
+					}
+	
+				}
+			}
+		}
+
+		getMaxValue(MoveScores)	
+	
+	}
+
+	return nextMoveCoordinates
+
+} 
+
+
+			///=========================\\\
+
+			{-} AI with depth parameter {-}
+
+			\\\=========================///
+
+
+
+Depth must be added after each opponent's available move, i.e., before recursively calling minimax algorithm.
+
+
+minimax(actualBoard, availableMoves, PlayerID, currentDepth)
+	{
+		List<MoveScores>
+	
+		for (each move in AvailableMoves)
+		{
+			nextBoard = addMove(actualBoard, PlayerID)
+	
+			checkWinningState(nextBoard, PlayerID)
+
+			if(is winning move)
+			{
+				movescore = 10
+				MoveScores(currentMove) = movescore
+			}
+
+			if(is not terminal move)
+			{
+				OpponentID = changeID(PlayerID)
+				List<OpponentAvailableMoves> = findAvailableMoves(nextBoard)
+				List<OpponentTurnMoveScores>
+
+				for (each move in OpponentAvailableMoves)
+				{
+					nextOpponentBoard = addMove(nextBoard, OpponentID)
+
+					checkWinningState(nextOpponentBoard, OpponentID)
+
+					if(is winning move)
+					{
+						movescore = -10 + 0.1 x currentDepth
+						MoveScores(currentMove) = movescore
+					}
+
+					if(is not terminal move)
+					{					
+						List<secondRoundPlayerAvailableMoves> = findAvailableMoves(nextOpponentBoard)
+
+						nextDepth = currentDepth + 1
+
+						minimax(nextOpponentBoard, secondRoundPlayerAvailableMoves, PlayerID, nextDepth)
+					}
+	
+				}
+			}
+		}
+
+		getMaxValue(MoveScores)	
+	
+	}
+
+
+
+
+
+

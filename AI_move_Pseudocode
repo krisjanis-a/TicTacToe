@@ -1,0 +1,80 @@
+Pseudocode
+
+AI_make_move(actualBoard, PlayerID)
+{
+	nextMoveCoordinates = {0,0}
+	
+	List<AvailableMoves> = findAvailableMoves(actualBoard)
+
+	List<MoveScores>
+
+	for(each move in AvailableMoves)
+	{
+
+		MoveScores(move) = minimax(actualBoard, currentMove, PlayerID)
+		{
+
+				nextBoard = addMove(actualBoard, currentMove, PlayerID)
+		
+				checkWinningState(nextBoard, PlayerID)
+
+				if(is winning move)
+				{
+					movescore = 10
+					MoveScores(currentMove) = movescore
+				}
+
+				if(is not terminal move)
+				{
+					OpponentID = changeID(PlayerID)
+					List<OpponentAvailableMoves> = findAvailableMoves(nextBoard)
+
+					for (each move in OpponentAvailableMoves)
+					{
+						nextOpponentBoard = addMove(nextBoard, OpponentID)
+
+						checkWinningState(nextOpponentBoard, OpponentID)
+
+						if(is winning move)
+						{
+							movescore = -10
+							MoveScores(currentMove) = movescore
+						}
+
+						if(is not terminal move)
+						{					
+							List<secondRoundPlayerAvailableMoves> = findAvailableMoves(nextOpponentBoard)
+
+							List<nextMoveScores>
+
+							for (each move in secondRoundPlayerAvailableMoves>
+							{
+								minimax(nextOpponentBoard, secondRoundMove, PlayerID)
+							}
+
+							getMaxValue(nextMoveScores)
+
+							return MaxValue
+						}
+		
+					}
+				}
+			
+
+				getMaxValue(MoveScores)
+
+				return MaxValue
+		
+		}
+
+	}
+
+	IndexMaxValue(MoveScores)
+
+	nextMoveCoordinate = AvailableMoves(IndexMaxValue)
+
+	return nextMoveCoordinates
+
+} 
+
+

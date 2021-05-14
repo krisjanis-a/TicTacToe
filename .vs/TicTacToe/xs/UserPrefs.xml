@@ -1,15 +1,16 @@
 ﻿<Properties StartupConfiguration="{ED60032F-85EA-425A-AEF9-D9D3BA7496E4}|Default">
-  <MonoDevelop.Ide.ItemProperties.TicTacToe FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+  <MonoDevelop.Ide.ItemProperties.TicTacToe PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AIMakeMoveWithDepth_Test.cs">
     <Files>
-      <File FileName="Program.cs" Line="1" Column="1" />
+      <File FileName="AIMakeMoveWithDepth_Test.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="TicTacToe" expanded="True">
             <Node name="TicTacToe" expanded="True">
-              <Node name="Program.cs" selected="True" />
+              <Node name="References" expanded="True" />
+              <Node name="AIMakeMoveWithDepth_Test.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -19,7 +20,16 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint enabled="false" file="/Users/Kr1sh/Desktop/unknown/programming scripts/projects/TicTacToe/Engine_AI.cs" relfile="Engine_AI.cs" line="327" column="33" />
+      <Breakpoint enabled="false" file="/Users/Kr1sh/Desktop/unknown/programming scripts/projects/TicTacToe/Engine_AI.cs" relfile="Engine_AI.cs" line="215" column="17" />
+      <Breakpoint enabled="false" file="/Users/Kr1sh/Desktop/unknown/programming scripts/projects/TicTacToe/Engine_AI.cs" relfile="Engine_AI.cs" line="230" column="13" />
+      <Breakpoint enabled="false" file="/Users/Kr1sh/Desktop/unknown/programming scripts/projects/TicTacToe/Engine_AI.cs" relfile="Engine_AI.cs" line="223" column="1" />
+      <Breakpoint enabled="false" file="/Users/Kr1sh/Desktop/unknown/programming scripts/projects/TicTacToe/Engine_AI.cs" relfile="Engine_AI.cs" line="380" column="1" />
+      <Breakpoint enabled="false" file="/Users/Kr1sh/Desktop/unknown/programming scripts/projects/TicTacToe/Engine_AI.cs" relfile="Engine_AI.cs" line="388" column="1" />
+      <Breakpoint enabled="false" file="/Users/Kr1sh/Desktop/unknown/programming scripts/projects/TicTacToe/Engine_AI.cs" relfile="Engine_AI.cs" line="495" column="35" />
+      <Breakpoint enabled="false" file="/Users/Kr1sh/Desktop/unknown/programming scripts/projects/TicTacToe/Engine_AI.cs" relfile="Engine_AI.cs" line="494" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
