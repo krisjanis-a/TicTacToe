@@ -46,7 +46,7 @@ namespace TicTacToe
 
             // Get user or AI input for coordinates
 
-            currentBoardState = emptyBoard;
+            currentBoardState = CopyArray(emptyBoard);
 
             int boardHeight = currentBoardState.GetLength(0);
             int boardWidth = currentBoardState.GetLength(1);
@@ -178,8 +178,8 @@ namespace TicTacToe
 
                 if (playerID == 2 | playerID == 3) 
                 {
-                    int methodOfChoice = 3; // Choose mode of AI 1) random; 2) winning; 3) avoid losing.
-                    int[,] nextBoardState = emptyBoard;
+                    int methodOfChoice = 5; // Choose mode of AI 1) random; 2) winning; 3) avoid losing.
+                    int[,] nextBoardState = CopyArray(emptyBoard);
 
                     // Modes of AI: 
                     // 1) Determine moves randomly
@@ -202,12 +202,31 @@ namespace TicTacToe
 
                     // 3) Determines whether a winning move is possible, if not avoids losing moves or otherwise chooses randomly
 
-                    if (methodOfChoice == 3)
+                    if (methodOfChoice == 3 /*& playerID == 2*/)
                     {
                         int[] nextMoveCoordinates = FindWinningAvoidLosingMove(currentBoardState, playerID);
 
                         nextBoardState = AddMoveToBoard(currentBoardState, nextMoveCoordinates, playerID);
                     }
+
+                    // 4) AI makes the move
+
+                    if (methodOfChoice == 4 /*& playerID == 1*/)
+                    {
+                        int[] nextMoveCoordinates = AIMakeMove(currentBoardState, playerID);
+
+                        nextBoardState = AddMoveToBoard(currentBoardState, nextMoveCoordinates, playerID);
+                    }
+
+                    // 5) AI with depth makes the move
+
+                    if (methodOfChoice == 5 /*& playerID == 1*/)
+                    {
+                        int[] nextMoveCoordinates = AIMakeMoveWithDepth(currentBoardState, playerID);
+
+                        nextBoardState = AddMoveToBoard(currentBoardState, nextMoveCoordinates, playerID);
+                    }
+
 
                     // Add to player move count
 
@@ -242,7 +261,7 @@ namespace TicTacToe
 
                     if (player1Wins == true | player2Wins == true)
                     {
-                        currentBoardState = nextBoardState;
+                        currentBoardState = CopyArray(nextBoardState);
                         gameFinished = true;
                         break;
                     }
@@ -253,7 +272,7 @@ namespace TicTacToe
 
                     if (boardIsFull == true)
                     {
-                        currentBoardState = nextBoardState;
+                        currentBoardState = CopyArray(nextBoardState);
                         gameFinished = true;
                         drawsCount += 1;
                         break;
@@ -265,7 +284,7 @@ namespace TicTacToe
 
                     playerID = nextPlayer;
 
-                    currentBoardState = nextBoardState;
+                    currentBoardState = CopyArray(nextBoardState);
                 }
             }
 
