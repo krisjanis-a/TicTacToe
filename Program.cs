@@ -33,8 +33,6 @@ namespace TicTacToe
                 i++;
             }
 
-            // Print board
-
             PrintBoard(emptyBoard);
 
             Console.WriteLine(Environment.NewLine + "Player-1 score: " + player1Score);
@@ -43,8 +41,6 @@ namespace TicTacToe
             Console.WriteLine("Press any key to start the game.");
             Console.ReadKey();
             Console.Clear();
-
-            // Get user or AI input for coordinates
 
             currentBoardState = CopyArray(emptyBoard);
 
@@ -67,11 +63,11 @@ namespace TicTacToe
             while (gameFinished == false)
             {
 
-                // Change value of playerID in if() statement to valid values to determine human vs human, human vs AI or AI vs AI game version.
+                // Set value of playerID in if() statement to valid values (1 or 2; 3 to disable) to determine human vs human, human vs AI or AI vs AI game version.
 
                 // Human player makes a move. If human vs human, enable both player IDs.
 
-                if (playerID == 1 | playerID == 3)
+                if (playerID == 3 | playerID == 3)
                 {
 
                 CoordinateInput:
@@ -176,15 +172,16 @@ namespace TicTacToe
 
                 // Computer makes a move. If computer vs computer, enable both player IDs.
 
-                if (playerID == 2 | playerID == 3) 
+                if (playerID == 2 | playerID == 1) 
                 {
-                    int methodOfChoice = 5; // Choose mode of AI 1) random; 2) winning; 3) avoid losing.
+                    int methodOfChoice = 5; // Choose mode of AI 1) random; 2) winning; 3) avoid losing 4) AI and 5) AI with depth.
                     int[,] nextBoardState = CopyArray(emptyBoard);
 
-                    // Modes of AI: 
+                    // Modes of AI:
+
                     // 1) Determine moves randomly
 
-                    if (methodOfChoice == 1 /*& playerID == 1*/)
+                    if (methodOfChoice == 1 /*& playerID == 2*/)
                     {
                         int[] nextMoveCoordinates = DetermineMoveRandomly(currentBoardState);
 
@@ -211,7 +208,7 @@ namespace TicTacToe
 
                     // 4) AI makes the move
 
-                    if (methodOfChoice == 4 /*& playerID == 1*/)
+                    if (methodOfChoice == 4 /*& playerID == 2*/)
                     {
                         int[] nextMoveCoordinates = AIMakeMove(currentBoardState, playerID);
 
@@ -220,7 +217,7 @@ namespace TicTacToe
 
                     // 5) AI with depth makes the move
 
-                    if (methodOfChoice == 5 /*& playerID == 1*/)
+                    if (methodOfChoice == 5 & playerID == 2)
                     {
                         int[] nextMoveCoordinates = AIMakeMoveWithDepth(currentBoardState, playerID);
 
