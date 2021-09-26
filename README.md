@@ -2,7 +2,7 @@
 
 Console TicTacToe with PC opponent which uses minimax algorithm to determine next moves
 
-Learned to do some unit testing too
+Learned how to do some unit testing too
 
 ---
 
